@@ -23,7 +23,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
+          # Do not set registry-url — it injects a dummy NODE_AUTH_TOKEN
+          # that breaks Trusted Publishing / semantic-release auth checks.
 
       - name: Upgrade npm for Trusted Publishing
         run: npm install -g npm@latest
@@ -33,5 +34,4 @@ jobs:
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Trusted Publishing via OIDC — no NPM_TOKEN
           NPM_CONFIG_PROVENANCE: true
