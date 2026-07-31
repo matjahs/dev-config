@@ -1,0 +1,36 @@
+{
+  "name": "@matjahs/dev-config",
+  "version": "0.1.0",
+  "description": "Scaffold personal ESLint, Prettier, tsconfig, and EditorConfig into new projects",
+  "type": "module",
+  "bin": {
+    "matjahs-dev-config": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matjahs/dev-config.git"
+  },
+  "author": "Matjah Sonneveld",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.1",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.10.0"
+  }
+}
