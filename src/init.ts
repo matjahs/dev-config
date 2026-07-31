@@ -24,7 +24,7 @@ const PEER_DEPS: Record<ProjectType, string[]> = {
     'typescript@^6',
   ],
   node: [
-    '@eslint/js',
+    '@eslint/js@^9',
     'eslint@^9',
     'eslint-config-prettier',
     'globals',

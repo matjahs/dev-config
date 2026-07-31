@@ -54,7 +54,7 @@ Install after scaffolding (the CLI prints the exact command):
 **node**
 
 ```bash
-npm install -D @eslint/js eslint@^9 eslint-config-prettier globals prettier@^3 typescript@^6 typescript-eslint @types/node
+npm install -D @eslint/js@^9 eslint@^9 eslint-config-prettier globals prettier@^3 typescript@^6 typescript-eslint @types/node
 ```
 
 **next**
@@ -76,8 +76,7 @@ npm install -D eslint@^9 eslint-config-next eslint-config-prettier prettier@^3 t
 
 ```bash
 npm install
-npm run build
-node dist/cli.js init --type node --cwd /tmp/demo --force
+npm test   # build + smoke (init node/next, lint/typecheck node fixture)
 ```
 
 ## Release
