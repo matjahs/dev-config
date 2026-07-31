@@ -80,6 +80,16 @@ npm run build
 node dist/cli.js init --type node --cwd /tmp/demo --force
 ```
 
+## Release
+
+Publishing is automated with [semantic-release](https://github.com/semantic-release/semantic-release) on pushes to `main`.
+
+1. Create an npm **Automation** token: https://www.npmjs.com/settings/~/tokens
+2. Add it as a repo secret named `NPM_TOKEN` on [matjahs/dev-config](https://github.com/matjahs/dev-config/settings/secrets/actions)
+3. Merge conventional commits to `main` (`feat:`, `fix:`, `BREAKING CHANGE:`)
+
+The workflow builds the package, publishes to npm, updates `CHANGELOG.md`, and creates a GitHub Release.
+
 ## License
 
 MIT
