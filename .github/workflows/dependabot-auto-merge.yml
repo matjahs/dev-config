@@ -20,7 +20,13 @@ jobs:
 
       - name: Wait for checks and squash-merge
         run: |
-          # Wait until CI (and any other checks) settle, then merge.
+          # CI may not have registered checks yet when this job starts.
+          for _ in $(seq 1 36); do
+            if gh pr checks "$PR_URL" 2>/dev/null | grep -q .; then
+              break
+            fi
+            sleep 5
+          done
           gh pr checks "$PR_URL" --watch --fail-fast
           gh pr merge --squash --delete-branch "$PR_URL"
         env:
