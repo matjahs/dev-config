@@ -1,6 +1,6 @@
 {
   "name": "@matjahs/dev-config",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Scaffold personal ESLint, Prettier, tsconfig, and EditorConfig into new projects",
   "type": "module",
   "bin": {
