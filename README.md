@@ -82,13 +82,15 @@ node dist/cli.js init --type node --cwd /tmp/demo --force
 
 ## Release
 
-Publishing is automated with [semantic-release](https://github.com/semantic-release/semantic-release) on pushes to `main`.
+Publishing is automated with [semantic-release](https://github.com/semantic-release/semantic-release) on pushes to `main`, using [npm Trusted Publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC) — no `NPM_TOKEN` secret.
 
-1. Create an npm **Automation** token: https://www.npmjs.com/settings/~/tokens
-2. Add it as a repo secret named `NPM_TOKEN` on [matjahs/dev-config](https://github.com/matjahs/dev-config/settings/secrets/actions)
-3. Merge conventional commits to `main` (`feat:`, `fix:`, `BREAKING CHANGE:`)
+Trusted Publisher on npm must match:
 
-The workflow builds the package, publishes to npm, updates `CHANGELOG.md`, and creates a GitHub Release.
+- Repository: `matjahs/dev-config`
+- Workflow: `publish.yml`
+- Environment: `prod`
+
+Merge conventional commits to `main` (`feat:`, `fix:`, `BREAKING CHANGE:`). The workflow builds, publishes to npm (with provenance), updates `CHANGELOG.md`, and creates a GitHub Release.
 
 ## License
 
